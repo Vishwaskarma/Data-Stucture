@@ -57,10 +57,13 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
+    "*.jsx": "javascriptreact",
+    "*.java": "java",
     "array": "cpp",
     "string_view": "cpp",
     "initializer_list": "cpp",
     "span": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "ostream": "cpp"
   }
 }
