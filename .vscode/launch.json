@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "f:/Datastructure_Zero_To_Hero/Array",
-      "program": "f:/Datastructure_Zero_To_Hero/Array/build/Debug/outDebug",
+      "cwd": "d:/Himanshu/Data-Stucture/Array/Algorithms/BruteForceAlgo",
+      "program": "d:/Himanshu/Data-Stucture/Array/Algorithms/BruteForceAlgo/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
