@@ -1,50 +1,83 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 #include <algorithm>
-
 using namespace std;
 
-void MajorityElem(vector<int>& arr){  
-   int size=arr.size();
-    for(int val : arr){  
-      int freq=0;
+void MajorityElemSort(vector<int>& arr) {
+    int size = arr.size();
+    if (size == 0) return;
 
-          for(int el:arr){
-            if(val==el){
-               freq=freq+1;
-            }
-          }
-          if(freq >size/2){
-            cout << "The majority Elem is: "<< val ;
-          }
+    sort(arr.begin(), arr.end());
+
+    int maxFreq = 1;
+    int currFreq = 1;
+    int ans = arr[0];
+
+    for (int i = 1; i < size; i++) {
+        if (arr[i] == arr[i - 1]) {
+            currFreq++;
+        } else {
+            currFreq = 1;
+        }
+
+
+        if (currFreq > maxFreq) {
+            maxFreq = currFreq;
+            ans = arr[i];
+        }
     }
-}
-void MajorityElemSort(vector<int>& arr){
-   int size=arr.size();
-   int frequency=0;
-   std::sort(arr.begin(),arr.end());
-   for(int i=0;i<size;i++){
-      if(arr[i]==arr[0]){
-         frequency=frequency+1;
 
-      }
-      else{
-         frequency=0;
-      }
-
-   }
-   cout <<"The frequency of elem is:";
-
-   
-
+    cout << "The majority element is: " << ans 
+         << " with frequency: " << maxFreq << endl;
 }
 
-int main(){
+void MajorityElem(vector<int>& arr) {
+    int size = arr.size();
+    int majorityCount = size / 2;
+    for (int i = 0; i < size; i++) {
+        int count = 0;
+        for (int j = 0; j < size; j++) {
+            if (arr[i] == arr[j]) count++;
+        }
+        if (count > majorityCount) {
+            cout << "The majority element is: " << arr[i]
+                 << " with frequency: " << count << endl;
+            return;
+        }
+    }
+    cout << "No majority element found." << endl;
+}
 
-   // using BruteForce Algo Technique
-    vector<int> arr = {1,2,2,1,1};   
-    MajorityElem(arr);  
-   // using InBuilt Sorting Technique
-   MajorityElemSort(arr);         
+void MajorityMores(vector<int>& arr){
+    int count=0;
+    int candidate=0;
+    for(int i=0;i<arr.size();i++){
+        if(count==0){
+            candidate=arr[i];
+
+        }
+        if(count==arr[i]){
+            count=count+1;
+
+        }
+        else{
+            count--;
+        }
+    }
+    cout << "the majority elem is " << candidate ;
+
+}
+int main() {
+    vector<int> arr = {1, 2, 2, 1, 1};
+
+    cout << "// Using Brute Force Technique" << endl;
+    MajorityElem(arr);
+
+    cout << "// Using InBuilt Sorting Technique" << endl;
+    MajorityElemSort(arr);
+
+    cout << "//using Moores Algorithm Technique" << endl;
+    MajorityMores(arr);
+
     return 0;
 }
