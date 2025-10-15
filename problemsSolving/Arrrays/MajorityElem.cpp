@@ -68,7 +68,7 @@ void MajorityMores(vector<int>& arr){
 
 }
 int main() {
-    vector<int> arr = {1, 2, 2, 1, 1};
+    vector<int> arr = {1, 2, 2, 1, 1,2,2};
 
     cout << "// Using Brute Force Technique" << endl;
     MajorityElem(arr);
