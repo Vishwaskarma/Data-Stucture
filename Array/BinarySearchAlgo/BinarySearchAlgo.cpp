@@ -25,15 +25,10 @@ int BinarySearchAlgo(vector<int>arr,int target){
 
 }
 
-
-
 int main(){
     vector<int>arr={1,2,3,4,5,6,7,8,9,10,12,14};
     int target=1;
     cout << BinarySearchAlgo(arr,target) << endl;
-
-
-
 
 }
 
