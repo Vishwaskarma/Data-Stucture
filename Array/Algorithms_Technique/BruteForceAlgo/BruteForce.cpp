@@ -44,7 +44,7 @@ int main()
     // find maximum subarray sum using kadane's  algorithms
     int m = 2;
     std::vector<int> arr1 = {3, -2, 1, -4, 5, -7, 8};
-     std::vector<int> arr2 = {-2,1,-3,4,-1,2,1,-5,4};
+    std::vector<int> arr2 = {-2,1,-3,4,-1,2,1,-5,4};
     
     maximumSumofSubarrayKadane(arr2);
     return 0;
