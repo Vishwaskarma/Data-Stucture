@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Himanshu/Data-Stucture/Array/Algorithms/BruteForceAlgo",
-      "program": "d:/Himanshu/Data-Stucture/Array/Algorithms/BruteForceAlgo/build/Debug/outDebug",
+      "cwd": "d:/Himanshu/Data-Stucture/Strings/PermutationInString",
+      "program": "d:/Himanshu/Data-Stucture/Strings/PermutationInString/PermutationInString.cpp",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
