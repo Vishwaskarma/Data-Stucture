@@ -14,34 +14,27 @@ bool isFrequencySame(int freq1[],int freq2[]){
 bool IsPermutation(string s1,string s2){
     int freq[26]={0};
     for(int i=0;i<s1.length();i++){
-        int Idx=s1[i]-'a';
         freq[s1[i] -'a']++;
     }
-    int windSize=s1.length();
-    for(int i=0;i<s2.length(); i++){
-        int windIdx=0,idx=i;
-        int Windfreq[26]={0};
-        while(windIdx < windSize && idx < s2.length()){
-            Windfreq[s2[idx]-'a']++;
-            windIdx++;idx++;
 
+    int windSize = s1.length();
+
+    for(int i=0;i + windSize <= s2.length(); i++){
+        int Windfreq[26]={0};
+        for(int j = 0; j < windSize; j++){
+            Windfreq[s2[i + j] - 'a']++;
         }
         if(isFrequencySame(freq,Windfreq)){
             return true;
-
         }
-        return false;
     }
-
+    return false;  
 }
 
 int main(){
     string s1="ab";
     string s2="awsbasd";
-    bool permutation= IsPermutation(s1,s2);
+    bool permutation = IsPermutation(s1,s2);
     cout << permutation << endl;
     return 0;
 }
-
-
-
