@@ -4,12 +4,14 @@
 using namespace std;
 
 int ReverseNumber(int num){
-    int ReversedNum;
-    string nums=to_string(num);
-    for(int i=nums.size();i>0;i--){
-        // int intoInteger=to_integer(nums[i])
+    int ReversedNum=0;
+    while(num!=0){
+        int digit=num %10;
+        ReversedNum=ReversedNum*10 + digit;
+        num=num/10;
 
     }
+    return ReversedNum;
 
 }
 
@@ -17,6 +19,7 @@ int ReverseNumber(int num){
 int main(){
     int num=45672;
     int ans=ReverseNumber(num);
+    cout << ans << endl;
     return 0;
      
 }
