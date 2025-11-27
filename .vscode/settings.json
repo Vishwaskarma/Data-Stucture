@@ -62,6 +62,8 @@
     "iostream": "cpp",
     "ostream": "cpp",
     "vector": "cpp",
-    "cstddef": "cpp"
+    "cstddef": "cpp",
+    "deque": "cpp",
+    "string": "cpp"
   }
 }
