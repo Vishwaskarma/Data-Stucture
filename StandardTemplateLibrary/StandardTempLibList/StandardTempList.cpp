@@ -3,6 +3,7 @@
 #include<deque>
 #include<vector>
 #include<stack>
+#include<queue>
 
 using namespace std;
 
@@ -46,6 +47,8 @@ int main()
    st.push(1);
    st.push(2);
    st.push(3);
+   stack<int>s2;
+   s2.swap(st);
    while(!st.empty()){
     cout << st.top() << " ";
     st.pop();
@@ -53,6 +56,18 @@ int main()
 
    }
    cout << st.size() << endl ;
+   cout << endl;
+
+
+   queue<int>q;
+   q.push(2);
+   q.push(3);
+   q.push(4);
+   q.push(5);
+
+   while(!q.empty()){
+    cout << q.front() << " ";
+   }
    cout << endl;
 
 
