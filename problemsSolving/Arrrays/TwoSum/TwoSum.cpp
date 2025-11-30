@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include<unordered_map>
 using namespace std;
 
 // Brute force Approach
@@ -50,7 +51,23 @@ vector<int> TwosumTwopointer(int target, vector<int> &arr)
     }
     return pair;
 }
-
+//Optimized approach using map
+vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int,int>m;
+        vector<int>ans;
+        for(int i=0;i<nums.size();i++){
+            int first=nums[i];
+            int sec=target-first;
+            if(m.find(sec)!=m.end()){
+                ans.push_back(i);
+                ans.push_back(m[sec]);
+                break;
+            }
+            m[first]=i;
+        }
+        return ans;
+        
+    }
 int main()
 {
     vector<int> arr = {5, 2, 11, 7, 15};
@@ -67,5 +84,12 @@ int main()
     {
         cout << "This is better approach result: " << x << endl;
     }
+   //optimized approach
+     vector<int> result3 = twoSum(arr,target);
+    for (int x : result3)
+    {
+        cout << "This is better OPtimized approach result: " << x << endl;
+    }
+
     return 0;
 }
