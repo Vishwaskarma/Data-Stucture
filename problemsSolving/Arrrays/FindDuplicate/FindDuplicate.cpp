@@ -11,12 +11,14 @@ vector<int>findDuplicate(vector<int>& arr){
                 ans.push_back(arr[i]);
                 break;
             }
+            ans.push_back(-1);
         }
     }
     return ans;
 
 
 }
+
 int findDuplicateUsingSet(vector<int>& arr){
     unordered_set<int>s;
     for(int val:arr){
@@ -25,14 +27,13 @@ int findDuplicateUsingSet(vector<int>& arr){
         }
         s.insert(val);
     }
-    return -1;
+        return -1;
 }
 
 
-
-
-int main(){
+   int main(){
    vector<int> arr={1,2,3,4,5,1,6,7};
+
    //BruteForce approach
    vector<int>res= findDuplicate(arr);
    for(int x:res)cout << "Answer using Bruteforce" << x << endl;
@@ -40,7 +41,6 @@ int main(){
    //using set
    int res2=findDuplicateUsingSet(arr);
    cout <<"Answer using Set: "<< res2 << endl;
-   
-
    return 0;
+   
 }
