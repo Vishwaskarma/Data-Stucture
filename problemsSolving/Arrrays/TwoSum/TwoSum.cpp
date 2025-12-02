@@ -68,6 +68,23 @@ vector<int> twoSum(vector<int>& nums, int target) {
         return ans;
         
     }
+
+
+// Better and sorter approach
+vector<int>TwoSumBetterOpto(vector<int>& nums,int target){
+     unordered_map<int,int>m;
+     vector<int>ans;
+     for(int i=0;i<nums.size();i++){
+        int need=target-nums[i];
+        if(m.count(need)){
+            ans.push_back(m[need]);
+            ans.push_back(i);
+           break;
+        }
+        m[nums[i]]=i;
+     }
+     return ans;
+}
 int main()
 {
     vector<int> arr = {5, 2, 11, 7, 15};
@@ -88,8 +105,12 @@ int main()
      vector<int> result3 = twoSum(arr,target);
     for (int x : result3)
     {
-        cout << "This is better OPtimized approach result: " << x << endl;
+        cout << "This is better Optimized approach result: " << x << endl;
     }
+
+    //Better optomized approach
+    vector<int>result4=TwoSumBetterOpto(arr,target);
+    for(int x:result4)cout <<"This is Better sorter and optimized approach "<<  x << endl;
 
     return 0;
 }
