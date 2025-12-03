@@ -29,6 +29,21 @@ int findDuplicateUsingSet(vector<int>& arr){
     }
         return -1;
 }
+int findDupWithSLowAndFastPointer(vector<int>& arr){
+    int slow=arr[0],fast=arr[0];
+    do{
+        slow=arr[slow];
+        fast=arr[arr[fast]];
+       
+    }
+    while(slow !=fast);
+    slow=arr[0];
+    while(slow !=fast){
+        slow=arr[slow];
+        fast=arr[fast];
+    }
+    return slow;
+}
 
 
    int main(){
@@ -41,6 +56,11 @@ int findDuplicateUsingSet(vector<int>& arr){
    //using set
    int res2=findDuplicateUsingSet(arr);
    cout <<"Answer using Set: "<< res2 << endl;
+
+   //using LinkedList approach
+   int es3=findDupWithSLowAndFastPointer(arr);
+  cout << "Answer using Linked list approach: "  << es3 << endl;
+   
    return 0;
    
 }
