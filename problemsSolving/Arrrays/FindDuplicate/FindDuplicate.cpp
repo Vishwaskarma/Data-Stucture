@@ -59,7 +59,7 @@ int findDupWithSLowAndFastPointer(vector<int>& arr){
 
    //using LinkedList approach
    int es3=findDupWithSLowAndFastPointer(arr);
-  cout << "Answer using Linked list approach: "  << es3 << endl;
+   cout << "Answer using Linked list approach: "  << es3 << endl;
    
    return 0;
    

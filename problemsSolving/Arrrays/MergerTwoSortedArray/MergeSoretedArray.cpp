@@ -30,6 +30,19 @@ vector<int> MergeSortedArray(vector<int> &arr, vector<int> &arr2)
     return arr;
 }
 
+vector<int> MergeTwoSortedArr(vector<int> &arr, vector<int> &arr2)
+{
+    int m = arr.size();
+    int n = arr2.size();
+    int i = m - n - 1; 
+    int j = n - 1;
+    int Idx = m - 1;
+    while (i >= 0 && j >= 0)
+    arr[i] >= arr2[j] ?(arr[Idx--] = arr[i--]):(arr[Idx--] = arr2[j--]);
+    while (j >= 0)arr[Idx--] = arr2[j--];
+    return arr;
+}
+
 int main()
 {
     vector<int> arr = {1, 2, 3, 0, 0, 0};
@@ -37,6 +50,9 @@ int main()
 
     vector<int> ans = MergeSortedArray(arr, arr2);
     for (int x : ans)
+        cout << x << endl;
+    vector<int> ans2 = MergeTwoSortedArr(arr, arr2);
+    for (int x : ans2)
         cout << x << endl;
     return 0;
 }
