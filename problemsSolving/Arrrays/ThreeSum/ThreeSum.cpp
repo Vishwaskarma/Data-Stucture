@@ -29,7 +29,7 @@ vector<vector<int>>ThreeSumBrute(vector<int>& arr) {
 
 
 
-//this is optimized approach but not he best
+//this is optimized approach but not the best
 vector<vector<int>> ThreeSum(vector<int>& arr) {
     set<vector<int>> ans;
 
@@ -51,7 +51,7 @@ vector<vector<int>> ThreeSum(vector<int>& arr) {
     return vector<vector<int>>(ans.begin(), ans.end());
 }
 
-// Three sum with two pointer approach
+// Three sum with two pointer approach The best approach
 vector<vector<int>>ThreeSumWithTwoPointerApproach(vector<int>& arr){
     vector<vector <int>>ans;
 
@@ -73,7 +73,7 @@ vector<vector<int>>ThreeSumWithTwoPointerApproach(vector<int>& arr){
             }else{
 
                 ans.push_back({arr[i], arr[j], arr[k]});
-                j++;k--;
+                j++ ;k--;
                 while(j< k && arr[j]==arr[j-1])j++;
             }
 
