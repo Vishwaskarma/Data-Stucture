@@ -23,7 +23,7 @@ vector<vector<int>>ThreeSumBrute(vector<int>& arr) {
 
             }
         }
-    }
+    } 
  return vector<vector<int>>(ans.begin(), ans.end());
 }
 
@@ -43,7 +43,7 @@ vector<vector<int>> ThreeSum(vector<int>& arr) {
                 sort(temp.begin(), temp.end());
                 ans.insert(temp);
             }
-
+ 
             hash.insert(arr[j]);
         }
     }
@@ -52,9 +52,49 @@ vector<vector<int>> ThreeSum(vector<int>& arr) {
 }
 
 
+vector<vector<int>>ThreeSumWithTwoPointerApproach(vector<int>& arr){
+    vector<vector <int>>ans;
+
+      sort(arr.begin(),arr.end());
+    for(int i=0;i<arr.size();i++){
+        if(i>0 && arr[i]==arr[i-1])continue;
+        int j=i+1;
+        int k=arr.size()-1;
+
+
+        while(j<k){
+         
+            int sum=arr[i]+arr[j]+arr[k];
+            if(sum>0){
+                k--;
+            }else if(sum<0){
+                j++;
+
+            }else{
+
+                ans.push_back({arr[i], arr[j], arr[k]});
+                j++;k--;
+                while(arr[j]==arr[j-1])j++;
+            }
+
+         
+            
+        }
+        
+
+    }
+    return ans;
+}
+
+
+
+
+
+
 
 int main() {
-    vector<int> arr = {-1, 0, 1, 2, -1, -4};
+    // vector<int> arr = {-1, 0, 1, 2, -1, -4};
+      vector<int> arr = {-1,0,1,2,-1,-4};
 
     vector<vector<int>> ans = ThreeSum(arr);
 
@@ -70,6 +110,10 @@ int main() {
             cout <<"This is BruteForce approach"<<  x << " ";
         }
         cout << endl;
+    }
+    vector<vector<int>> ansTwoPointer=ThreeSumWithTwoPointerApproach(arr);
+    for(auto &tri:ansTwoPointer){
+        for(int x:tri)cout << x << " ";
     }
 
     return 0;
