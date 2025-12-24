@@ -12,7 +12,7 @@ bool CheckIsArraySorted(vector<int>& arr, int n)
     if (arr[n-1] < arr[n-2])
     {
         return false;
-    }
+    } 
     
     return CheckIsArraySorted(arr, n-1);
 }
