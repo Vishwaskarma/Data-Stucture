@@ -1,29 +1,47 @@
 #include <iostream>
-using namespace std;
 #include <algorithm>
 #include<vector>
+using namespace std;
 
+
+//Through inbuilt Method
 void sortArray(vector<int> & arr)
 {
      std::sort(arr.begin(),arr.end());
 }
-void printArr(int arr[], int n)
+
+//Through DutchNationalFlagAlgo
+vector<int> DutchNationalFlagAlgo(vector<int> &arr)
 {
-    for (int i = 0; i < n; i++)
+
+    int mid = 0;
+    int low = 0;
+    int high = arr.size() - 1;
+
+    while (mid <= high)
     {
-        cout << arr[i] << " ";
+        if(arr[mid]==0){
+            swap(arr[mid],arr[low]);
+            low++;
+            mid++;
+        }
+        else if(arr[mid]==1){
+            mid++;
+
+        }else{
+            swap(arr[mid],arr[high]);high--;
+        }
     }
-    cout << endl;
+    return arr;
 }
 
 int main()
 {
     int n = 10;
-std::vector<int> arr = {2, 0, 2, 1, 1, 0, 1, 2, 0, 0};
-    sortArray(arr);
-  for(int num:arr){
-    std:: cout <<num << " ";
-
-  }
+  vector<int> arr = {2, 0, 2, 1, 1, 0, 1, 2, 0, 0};
+  sortArray(arr);
+  for(int num:arr)cout <<num << " ";
+  vector<int> ans = DutchNationalFlagAlgo(arr);
+  for(int x :ans)cout <<"This is DutchNationalFlagAlgo: " <<  x<< endl;
   return 0;
 }
