@@ -1,32 +1,38 @@
 #include<iostream>
 #include<vector>
+#include<unordered_map>
+#include<algorithm>
 using namespace std;
 
 
 
-string LongestSubstring(string st){
-    vector<vector<string>>finalString;
-    string res;
-    for(int i=0;i<st.size();i++){
-        
-        if(res.size() <1)  res+=st[i];
-        for(int i=0;i<res.size();i++){
-            if(res[i]!=st[i]){
-                res+=st[i];
-            }
-            else{
-                finalString.push_back({res});
-               continue;
-            }
-
+int  LongestSubstring(string st){
+    int maxLen=0;
+    int left=0;
+    unordered_map<char,int>m;
+    vector<char>ch(st.begin(),st.end());
+    for(int right=0;right<st.size();right++){
+      if (m.find(st[right]) != m.end() && m[st[right]] >= left) {
+            left = m[st[right]] + 1;
         }
 
+        m[st[right]] = right;
+
+        maxLen = max(maxLen, right - left + 1);
     }
+    return maxLen;
+
+
+  
+        
+       
+    
 
 }
 
 int main(){
     string s="abcabcbb";
-    string Longest=LongestSubstring(s);
+    int Longest=LongestSubstring(s);
+    cout << Longest << endl;
     return 0;
 }
