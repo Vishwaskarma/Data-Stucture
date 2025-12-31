@@ -1,59 +1,38 @@
-#include <iostream>
-#include <vector>
-#include <unordered_set>
+#include<iostream>
+#include<vector>
+#include<unordered_map>
+#include<algorithm>
 using namespace std;
 
-vector<string> LongestSubstring(string st)
-{
-    vector<string> finalString;
-    unordered_set<char> res;
-    string current;
-    for (int i = 0; i < st.size(); i++)
-    {
 
-        char ch = st[i];
 
-        if (res.find(ch) == res.end())
-        {
-            res.insert(ch);
-            current += ch;
+int  LongestSubstring(string st){
+    int maxLen=0;
+    int left=0;
+    unordered_map<char,int>m;
+    vector<char>ch(st.begin(),st.end());
+    for(int right=0;right<st.size();right++){
+      if (m.find(st[right]) != m.end() && m[st[right]] >= left) {
+            left = m[st[right]] + 1;
         }
 
-        else
-        {
-           finalString.push_back(current);
+        m[st[right]] = right;
 
-            res.clear();
-            current.clear();
-
-            res.insert(ch);
-            current += ch;
-        }
+        maxLen = max(maxLen, right - left + 1);
     }
-    if (!current.empty()) {
-        finalString.push_back(current);
-    }
+    return maxLen;
 
-    return finalString;
+
+  
+        
+       
+    
+
 }
 
-int LongestSubstringCount(string st){
-    int left=-1;
-    int maxLength=0;
-    // unordered_map<
-
-    for(int i=0;i<st.size();i++){
-
-    }
-     return 
-}
-int main()
-{
-    string s = "abcabcbb";
-    vector<string> Longest = LongestSubstring(s);
-    for (const auto &inner : Longest)cout << inner;
-    int ans=LongestSubstringCount(s);
-    cout<< ans <<endl;
-
+int main(){
+    string s="abcabcbb";
+    int Longest=LongestSubstring(s);
+    cout << Longest << endl;
     return 0;
 }
