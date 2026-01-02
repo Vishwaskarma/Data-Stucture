@@ -30,10 +30,65 @@ int LongestSubstring(string st)
     return maxCount;
 }
 
+
+
+int LongestSubstringWithTwoPointer(string s)
+{
+    int maxCount = 0;
+
+    int start=0;
+
+    set<char> c;
+
+    for (int i = 0; i < s.size(); i++)
+    {
+      
+
+        if (c.find(s[i]) != c.end())
+        {   
+             
+             start++;
+             c.erase(s[start]);
+          
+        }
+        c.insert(s[i]);
+        maxCount = max(maxCount, i - start + 1);
+
+        
+      
+           
+       
+        
+    }
+    return maxCount;
+}
+
+
+
+
+string ReverseString(string s = "Himanshu")
+{
+    int start = 0;
+    int end = s.size() - 1;
+
+    while (start <= end)
+    {
+        swap(s[start], s[end]);
+        start++;
+        end--;
+    }
+    return s;
+}
+
 int main()
 {
-    string s = "bbbbbb";
+    string s = "abcabcbb";
     int Longest = LongestSubstring(s);
     cout << Longest << endl;
+    int LongestWithTwoPointer = LongestSubstringWithTwoPointer(s);
+    cout << LongestWithTwoPointer <<endl;
+    cout<<"This is Two pointer approach:"<<LongestWithTwoPointer <<endl;
+    cout << ReverseString();
+
     return 0;
 }

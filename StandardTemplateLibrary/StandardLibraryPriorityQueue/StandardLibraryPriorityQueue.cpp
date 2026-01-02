@@ -119,6 +119,10 @@ int main()
     se.insert(6);
 
 
+  bool ans=se.find(6) !=se.end();
+  cout <<"ans of set to check exist or not "<<ans << endl;
+
+
 
     cout << se.size() << endl;
     cout << "lower bound = " << *(se.lower_bound(4)) << endl;
