@@ -30,8 +30,6 @@ int LongestSubstring(string st)
     return maxCount;
 }
 
-
-
 int LongestSubstringWithTwoPointer(string s)
 {
     int maxCount = 0;
@@ -62,7 +60,24 @@ int LongestSubstringWithTwoPointer(string s)
 }
 
 
+int lengthOfLongestSubstring(string s) {
+    unordered_map<char, int> charIndex;  
+    int left = 0;
+    int maxLength = 0;
+    for(int right=0;right<s.size();right++){
+       int currentElem=s[right];
+       if(charIndex.find(currentElem)!=charIndex.end()){
+        left=charIndex[currentElem]+1;
 
+       }
+       charIndex[currentElem]=right;
+       maxLength=max(maxLength,right-left+1);
+
+    }
+
+    
+   return maxLength;
+}
 
 
 
@@ -74,6 +89,8 @@ int main()
     int LongestWithTwoPointer = LongestSubstringWithTwoPointer(s);
     cout << LongestWithTwoPointer <<endl;
     cout<<"This is Two pointer approach:"<<LongestWithTwoPointer <<endl;
+    int ans=lengthOfLongestSubstring(s);
+    cout<< ans<<endl;
 
 
     return 0;
