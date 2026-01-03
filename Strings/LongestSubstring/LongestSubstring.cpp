@@ -10,7 +10,7 @@ int LongestSubstring(string st)
 {
 
     int count;
-    int maxCount = INT_MIN;
+    int maxCount = 0;
     for (int i = 0; i < st.size(); i++)
     {
         count = 0;
@@ -66,19 +66,7 @@ int LongestSubstringWithTwoPointer(string s)
 
 
 
-string ReverseString(string s = "Himanshu")
-{
-    int start = 0;
-    int end = s.size() - 1;
 
-    while (start <= end)
-    {
-        swap(s[start], s[end]);
-        start++;
-        end--;
-    }
-    return s;
-}
 
 int main()
 {
@@ -88,7 +76,7 @@ int main()
     int LongestWithTwoPointer = LongestSubstringWithTwoPointer(s);
     cout << LongestWithTwoPointer <<endl;
     cout<<"This is Two pointer approach:"<<LongestWithTwoPointer <<endl;
-    cout << ReverseString();
+
 
     return 0;
 }
