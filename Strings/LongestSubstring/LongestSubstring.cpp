@@ -9,13 +9,13 @@ using namespace std;
 int LongestSubstring(string st)
 {
 
-    int count;
+
     int maxCount = 0;
     for (int i = 0; i < st.size(); i++)
     {
-        count = 0;
+       
         set<char> s;
-        for (int j = i + 1; j < st.size(); j++)
+        for (int j = i; j < st.size(); j++)
         {
 
             if (s.find(st[j]) != s.end())
@@ -23,9 +23,9 @@ int LongestSubstring(string st)
                 break;
             }
             s.insert(st[j]);
-            count += 1;
+            
         }
-        maxCount = max(maxCount, count);
+        maxCount = max(maxCount, (int)s.size());
     }
     return maxCount;
 }
@@ -44,12 +44,10 @@ int LongestSubstringWithTwoPointer(string s)
     {
       
 
-        if (c.find(s[i]) != c.end())
-        {   
-             
-             start++;
-             c.erase(s[start]);
-          
+         while (c.find(s[i]) != c.end())
+        {
+            c.erase(s[start]);
+            start++;
         }
         c.insert(s[i]);
         maxCount = max(maxCount, i - start + 1);
