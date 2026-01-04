@@ -61,15 +61,17 @@ int lengthOfLongestSubstring(string s)
         if (charIndex.find(currentElem) != charIndex.end())
         {
             left = charIndex[currentElem] + 1;
+            cout <<"this is left index" <<left <<endl;
         }
         charIndex[currentElem] = right;
+        cout<<"this is right index" << right << endl;
         maxLength = max(maxLength, right - left + 1);
     }
 
     return maxLength;
 }
 
-int main()
+int main() 
 {
     string s = "abcabcbb";
     int Longest = LongestSubstring(s);
