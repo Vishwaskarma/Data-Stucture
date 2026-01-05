@@ -1,22 +1,42 @@
-// #include<iostream>
-// #include<vector>
-// #include<unordered_map>
-// #include<set>
-// using namespace std;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 
+vector<int> FindMissingAndRepeatedNumber(vector<int> &arr)
+{
+    vector<int> ar;
+    int repeated=-1;
+    int missing=-1;
 
-// vector<int>findMissingAndRepeatingValues(vector<int>& grid){
+    sort(arr.begin(), arr.end());
 
-// }
+    for (int i = 1; i < arr.size(); i++)
+    {
 
+        if (arr[i] == arr[i - 1])
+        {
+          repeated=  arr[i];
+        }
 
+        if (arr[i] - arr[i - 1] > 1)
+        {
+            missing=arr[i-1]+1;
+           
 
-// int main(){
-// vector<vector<int>> grid = {
-//     {1, 2, 3},
-//     {4, 5, 6},
-//     {7, 8, 9}
-// };
-// vector<int>result=findMissingAndRepeatingValues(grid);
-// return 0;
-// }
+        }
+    }
+    ar.push_back(repeated);
+    ar.push_back(missing);
+    return ar;
+}
+
+int main()
+{
+
+    vector<int> arr = {3, 1, 2, 5, 3};
+    vector<int> ans = FindMissingAndRepeatedNumber(arr);
+    for (int x : ans)
+    cout << x << endl;
+    return 0;
+}
