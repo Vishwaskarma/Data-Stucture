@@ -13,7 +13,7 @@ bool CheckIsArraySorted(vector<int>& arr, int n)
     {
         return false;
     } 
-    
+     
     return CheckIsArraySorted(arr, n-1);
 }
 
@@ -25,4 +25,4 @@ int main()
     cout << CheckIsArraySorted(arr, n);
     
     return 0;
-}
+}     
