@@ -8,10 +8,10 @@
        
       int count=0;
       for(int i=0;i<nums.size()-1;i++){
-        int st=i+1;
+     
         int end=nums.size()-1;
 
-        while(st<end){
+        while(nums[i]<end){
             if(nums[i]==nums[end]){
                 count+=1;
                 nums.erase(nums.begin()+1);
@@ -27,8 +27,6 @@
  int main(){
     vector<int>nums= {1,1,2};
     pair<vector<int>,int>ans= removeDuplicates(nums);
-   
-   
     return 0;
  }
  
