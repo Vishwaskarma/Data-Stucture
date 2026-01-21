@@ -8,7 +8,7 @@ int threeSumClosest(vector<int> &arr, int target)
 {
     int n = arr.size() - 2;
     int closestSum = arr[0] + arr[1] + arr[2];
-    int closestDifference = INT_MAX;
+    int closestDifference = __INT_MAX__;
     sort(arr.begin(),arr.end());
     for (int i = 0; i < n; i++)
     {
