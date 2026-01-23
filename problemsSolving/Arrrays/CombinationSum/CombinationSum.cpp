@@ -5,11 +5,13 @@
 // vector<vector<int>>Combination(vector<int>&candidate,int target){
 //     vector<vector<int>>FinalVector;
 // for(int i=0;i<candidate.size()-1;i++){
-//     for(int j=i+1;j<candidate.size()-1;j++){
-//         while(candidate[i]+candidate[j]<=target){
-            
-//         }
+//     int st=i;
+//     int end=candidate.size()-1;
+//     while(st<end){
+//         int reachingToTarget=candidate[st]+=candidate[st];
+//         reachingToTarget ==target ? FinalVector.push_back({}) :
 //     }
+    
 // }
 // }
 
