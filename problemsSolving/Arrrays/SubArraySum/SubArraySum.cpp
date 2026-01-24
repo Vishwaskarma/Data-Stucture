@@ -43,6 +43,27 @@ int subArraySumEqualToK(vector<int> &arr, int k)
 
     return count;
 }
+int subarraySum(vector<int>& nums, int k) {
+    int st=0;
+    int sum=0;
+    int count=0;
+    int end=nums.size()-1;
+    unordered_map<int,int>mp;
+    mp[0]=1;
+
+
+    while(st<=end){
+        sum+=nums[st];
+        if(mp.find(sum)!=mp.end()) count+=mp[sum];
+        mp[sum]++;
+        st++;
+    }
+        return count;
+
+        
+
+    }
+        
 
 int main()
 {
@@ -52,5 +73,7 @@ int main()
     cout << "This is BruteForce Approach is:" << ans << endl;
     int ans2 = subArraySumEqualToK(arr, k);
     cout << "This is optimized way is:" << ans2 << endl;
+    int ans3=subarraySum(arr,k);
+    cout << ans3 << endl;
     return 0;
 }
