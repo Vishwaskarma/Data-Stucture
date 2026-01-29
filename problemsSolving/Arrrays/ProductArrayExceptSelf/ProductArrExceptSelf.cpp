@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<numeric>
+#include<unordered_map>
 
 using namespace std;
 
@@ -19,12 +20,26 @@ vector<int> ProductArrExceptSelf(vector<int>nums){
         arr.push_back(product);
     }
     return arr;
+}
+
+//Usig two Pointer approach
+vector<int>ProductArrExceptSelfUsingTwoPointer(vector<int>nums){
+    unordered_map<int,int>map;
+    
+    int st=0;
+    int end=nums.size()-1;
+    int product=0;
+    while(st<end){
+    
+    map[product*=nums[st]]=st;
 
 
-        
 
+    
 
-    }
+   }
+  
+}
 
 
 
