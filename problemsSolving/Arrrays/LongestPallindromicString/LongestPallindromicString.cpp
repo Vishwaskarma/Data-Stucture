@@ -18,12 +18,11 @@ vector<string> LongestPallindromicStringSize(string str){
     int LongestPallindromicString=0;
     for(int i=0;i<str.size()-1;i++){
     string subPart=str.substr(0,i+1);
-
-    if(CheckPallindrome(subPart)){
+    cout << CheckPallindrome << endl;
+    if(CheckPallindrome(subPart)){ 
     if (LongestPallindromicString<subPart.size()){
         LongestPallindromicString=subPart.size();
-        LongestPallindrome.pop_back();
-        LongestPallindrome.push_back(subPart);
+        if(LongestPallindrome.empty()){ LongestPallindrome.push_back(subPart);}else LongestPallindrome.pop_back();LongestPallindrome.push_back(subPart);
 
 
     }
@@ -41,7 +40,7 @@ return LongestPallindrome;
 
 
 int main(){
-    string str="babad";
+    string str="cbbd";
      vector<string>ans=LongestPallindromicStringSize(str);
      for(string x:ans)cout << x<< endl;
      return 0;
