@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
  bool CheckPallindrome(string subPart){
     int st=0;
@@ -14,27 +15,23 @@ using namespace std;
 
 vector<string> LongestPallindromicStringSize(string str){
     vector<string>LongestPallindrome;
-    if(str.size()==0)return LongestPallindrome ;
-    int LongestPallindromicString=0;
-    for(int i=0;i<str.size()-1;i++){
-    string subPart=str.substr(0,i+1);
-    cout << CheckPallindrome << endl;
-    if(CheckPallindrome(subPart)){ 
-    if (LongestPallindromicString<subPart.size()){
-        LongestPallindromicString=subPart.size();
-        if(LongestPallindrome.empty()){ LongestPallindrome.push_back(subPart);}else LongestPallindrome.pop_back();LongestPallindrome.push_back(subPart);
-
-
-    }
-
+    int GlobalMaxSize=INT_MIN;
     
-    LongestPallindromicStringSize(str.substr(0,i+1));
+    for(int i=0;i<str.size()-1;i++){
+        string strin=str.substr(0,i+1);
+        if(CheckPallindrome(strin)){
+            int strsize=strin.size();
+            int GlobalMaxSize=max(GlobalMaxSize,strsize);
+            if(GlobalMaxSize>strsize)LongestPallindrome.push_back(strin);
+        }
+             string newStr=str.substr(i+1);
+             cout<< newStr << endl;
+             LongestPallindrome.pop_back();
+            CheckPallindrome(str.substr(i+1));
 
     }
-
-}
-return LongestPallindrome;
-
+   
+   return LongestPallindrome;
 }
 
 
