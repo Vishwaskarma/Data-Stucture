@@ -4,6 +4,21 @@ using namespace std;
 
 
 
+// using window approach
+int RemoveDuplicatesFromSortedArrarSecondBrute(vector<int>&arr){
+    int left=1;
+    int count=1;
+  
+    return left;
+}
+
+
+
+
+
+
+
+// using Tgwo pointer approach
 int RemoveDuplicatesFromSortedArrarSecond(vector<int>&arr){
     int left=1;
         int count=1;
