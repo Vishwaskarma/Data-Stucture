@@ -1,16 +1,15 @@
 {
   "version": "0.2.0",
   "configurations": [
-    
     {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "d:/Himanshu/Data-Stucture/Strings/PermutationInString",
-      "program": "d:/Himanshu/Data-Stucture/Strings/PermutationInString/PermutationInString.cpp",
+      "externalConsole": false,
+      "cwd": "/media/himanshu-vishwakarma/MyProjects/Data_structure_algo/Data-Stucture/Strings/LengthOfLastWord",
+      "program": "/media/himanshu-vishwakarma/MyProjects/Data_structure_algo/Data-Stucture/Strings/LengthOfLastWord/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

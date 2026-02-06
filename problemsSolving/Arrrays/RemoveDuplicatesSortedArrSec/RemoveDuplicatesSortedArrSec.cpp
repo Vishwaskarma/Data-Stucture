@@ -36,7 +36,9 @@ int RemoveDuplicatesFromSortedArrarSecond(vector<int>&arr){
 int main(){
     vector<int>nums = {1,1,1,2,2,3};
     int ans=RemoveDuplicatesFromSortedArrarSecond(nums);
+    int ans2=RemoveDuplicatesSotedArr(nums);
     cout<< ans<<endl;
+    cout<<ans2<<endl;
 
     return 0;
 }
