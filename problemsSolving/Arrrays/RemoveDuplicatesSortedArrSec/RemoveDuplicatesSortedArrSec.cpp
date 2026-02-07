@@ -2,7 +2,21 @@
 #include<vector>
 using namespace std;
 
-
+// //Bruteforce algo
+int RemoveDuplicatesSotedArr(vector<int>&arr){
+    int left=0;
+    int count=1;
+    for(int i=0;i<arr.size();i++){
+        for(int j=1;j<arr.size();j++){
+            if(arr[i]==arr[j]){
+                count+=1;
+            }else{
+                count=1;
+            }
+        }
+    }
+    return left;
+}
 
 int RemoveDuplicatesFromSortedArrarSecond(vector<int>&arr){
     int left=1;
@@ -21,7 +35,9 @@ int RemoveDuplicatesFromSortedArrarSecond(vector<int>&arr){
 int main(){
     vector<int>nums = {1,1,1,2,2,3};
     int ans=RemoveDuplicatesFromSortedArrarSecond(nums);
+    int ans2=RemoveDuplicatesSotedArr(nums);
     cout<< ans<<endl;
+    cout<<ans2<<endl;
 
     return 0;
 }
