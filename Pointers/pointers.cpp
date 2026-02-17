@@ -22,7 +22,7 @@ int main(){
     // Derefrence operator
     int b=10;
     int* ptr3=&b;
-    int** ptr4=&ptr3;
+    int** ptr4=&ptr3; 
     cout << "This is memory address of ptr4" << ptr4 << endl;
     cout <<"This will print the value at address of ptr4 is " << *(ptr4) << endl;
     cout << **(ptr4) << endl;
@@ -34,7 +34,7 @@ int main(){
     int **q=&p;
     cout <<"The value at address of pointer p is " << *p << endl;
      
-    // Array pointer
+    // Array pointer 
     int arr[]={1,2,3,4,5};
     int d=24;
     // this is not acceptable 
