@@ -1,96 +1,81 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
 using namespace std;
-// essentital functions for linkedlist
-// 1->push_front();
-// 2->pop_front();
-// 3->push_back();
-// 4->pop_back();
 
-class  Node{
-    public:
-       int data;
-       Node* next;
-       Node(int val){
-            data=val;
-            next=NULL;
-
-        }
-
+struct Node {
+    int data;
+    Node* next;
 };
-class List{
-    Node* head;
-    Node* tail;
-public:
-    List(){
-        head=tail=NULL;
+void UpdateNode(Node* head,int oldValue,int newValue){
+    Node* current=head;
+    while(current!=NULL){
+       if(current->data==oldValue) { 
+        current->data=newValue;
+        return;
     }
-    void push_front(int val){
-        Node* newNode=new Node(val);
-        if(head==NULL){
-            head=tail=newNode;
-            return;
-        }else{
-            newNode->next=head;
-            head=newNode;
-        }
+    current=current->next;
+    }
 
-    } 
-    void push_back(int val){
-        Node* newNode=new Node(val);
-        if(head==NULL){
-            head=tail=newNode;
-        }else{
-            tail->next=newNode;
-            tail=newNode;
-        }
+}
+void InsertAtFrontNode(Node*& head,int value){
+    Node* newNode=new Node();
+    newNode->data=value;
+    newNode->next=head;
+    head=newNode;
 
+}
+void PrintList(Node* head){
+    Node* current=head;
+    while(current!=NULL){
+        cout<<" "<<current->data<<endl;
+        current=current->next;
     }
-    void pop_front(){
-        if(head==NULL){
-            cout<<"LL is empty\n";
-        }
-        Node* temp=head;
-        head=head->next;
-        temp->next=NULL;
-    }
-    void pop_back(){
-        if(head==NULL){
-            cout<<"LL is empty\n";
-            return;
-        }
-        Node* temp=head;
-        while(temp->next !=NULL){
-            temp=temp->next;
-        }
-        temp->next=NULL;
-        delete tail;
-        tail=temp;
-    }
-    void printLL(){
-        Node* temp=head;
-        while(temp!=NULL){
-            cout<<temp->data<< " ";
-            temp=temp->next;
-        }
-        cout<<endl;
-
-    }
-  
-};  
-int main(){
-   List l1;
-   l1.push_front(1);
-   l1.push_front(2);
-   l1.push_front(3);
-   l1.push_back(4);
-   l1.pop_front();
-   l1.printLL();
-    return 0;
 }
 
-  
+void DeleteNode(Node*& head, int value) {  
+    if (head == NULL) return;  
 
- 
+   
+    if (head->data == value) {  
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        return;
+    }
+
+    
+    Node* currentsec = head;
+    Node* prev = NULL;  
+
+    while (currentsec != NULL) {
+        if (currentsec->data == value) { 
+            prev->next = currentsec->next; 
+            delete currentsec;
+            return;  
+        }
+        prev = currentsec;
+        currentsec = currentsec->next;
+    }
+
+    cout << "Value not found!" << endl;
+}
+
+int main(){
+    Node* head=NULL;
+
+    
+    
+    InsertAtFrontNode(head,10);
+    InsertAtFrontNode(head,20);
+    InsertAtFrontNode(head,30);
+    InsertAtFrontNode(head,40);
+    InsertAtFrontNode(head,50);
+    
+    UpdateNode(head,20,900);
+    DeleteNode(head,900);
+
+    PrintList(head);
 
 
+
+    return 0;
+}
