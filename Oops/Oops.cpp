@@ -32,6 +32,17 @@ public:
         salary=sal;
 
     }
+
+    //copy constructor
+    Teacher(const Teacher &orgObj){
+    
+        this->name=orgObj.name;
+        this->department=orgObj.department;
+        this->subject=orgObj.subject;
+        this->salary=orgObj.salary;
+
+    }
+    
     void info(){
         cout<<name <<endl;
         cout<<department<<endl;
@@ -68,7 +79,10 @@ public:
 
 int main(){
     Teacher t1("Himanshu","Computer Science","Python",26000);
-    t1.info();
+ // passing  class  instance inside another one called copy constructor
+    Teacher t2(t1);
+    t2.info();
+    // t1.info();
     // t1.name="Himanshu";
     // t1.department="computer Science";
     // t1.subject="c++";
