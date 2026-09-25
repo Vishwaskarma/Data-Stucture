@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include<climits>
 using namespace std;
 
 
@@ -59,11 +60,37 @@ int SecondHighestWithTwoPointers(vector<int>&arr){
 
 }
 
+
+// Find secondHighest Elem 
+int OptimizeSecondHighestElem(vector<int>arr){
+    int First=INT_MIN;
+    int Second=INT_MIN;
+
+    for(int x:arr){
+        if(x<First){
+            Second=First;
+            First=x;
+
+        }
+        else if(x<Second && First!=Second){
+            Second=x;
+
+        }
+
+    }
+    return Second;
+
+
+
+}
+
 int main()
 {
     vector<int> arr = {1, 2, 3,8,9, 4, 5, 6,7};
     int ans = SecondHighestElem(arr);
     int ans2=SecondHighestWithTwoPointers(arr);
+    int ans3=OptimizeSecondHighestElem(arr);
+    cout<<"Optimize Solution answer sec highest Elem" << " " << ans <<endl;
     // int ans3=SecondHighestElemWithSlidingWindow(arr);
     cout <<"With BruteForce : "<< ans << endl;
     cout <<"With two pointer approach : " << ans2 << endl;
